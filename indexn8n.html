@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement Routeur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #004080;
+      color: white;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    main {
+      padding: 30px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 50px;
+      background-color: #eee;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #response {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Airtel_Congo.JPG" alt="Logo">
+  <h1>Bienvenue sur notre service de paiement routeur</h1>
+</header>
+
+<main>
+  <h2>Paiement routeur</h2>
+  <input type="text" id="routeurInput" placeholder="Entrez le numéro du routeur">
+  <br>
+  <button onclick="envoyer()">Envoyer</button>
+  <p id="response"></p>
+</main>
+
+<footer>
+  <p>&copy; 2025 - Service de Paiement Routeur. Tous droits réservés.</p>
+</footer>
+
+<script>
+  async function envoyer() {
+    const numero = document.getElementById("routeurInput").value;
+    const responseDiv = document.getElementById("response");
+
+    if (!numero) {
+      responseDiv.textContent = "Veuillez entrer un numéro de routeur.";
+      return;
+    }
+
+    try {
+      const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook/paiement-routeur", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ routeur: numero })
+      });
+
+      const data = await response.json();
+      responseDiv.textContent = data.message || "Réponse reçue.";
+    } catch (error) {
+      responseDiv.textContent = "Erreur lors de l'envoi.";
+    }
+  }
+</script>
+
+</body>
+</html>
