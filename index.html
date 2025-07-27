@@ -94,7 +94,10 @@
         body: JSON.stringify({ routeur: numero })
       });
       const data = await response.json();
-      responseDiv.textContent = data[0]?.data || "Réponse reçue.";
+      const rawXml = data[0]?.data || "";
+      const match = rawXml.match(/<Error>(.*?)<\/Error>/);
+      responseDiv.textContent = match ? match[1].trim() : "Aucune erreur trouvée.";
+
     } catch (error) {
       responseDiv.textContent = "Erreur lors de l'envoi.";
     }
