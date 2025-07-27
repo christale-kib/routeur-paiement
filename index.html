@@ -93,9 +93,8 @@
         },
         body: JSON.stringify({ routeur: numero })
       });
-
       const data = await response.json();
-      responseDiv.textContent = data.message || "Réponse reçue.";
+      responseDiv.textContent = data[0]?.data || "Réponse reçue.";
     } catch (error) {
       responseDiv.textContent = "Erreur lors de l'envoi.";
     }
