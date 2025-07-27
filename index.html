@@ -96,10 +96,6 @@
     const data = await response.json();
     const rawXml = data[0]?.data || "";
     responseDiv.textContent = rawXml;
-
-    } catch (error) {
-      responseDiv.textContent = "Erreur lors de l'envoi.";
-    }
   }
 </script>
 
