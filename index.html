@@ -53,6 +53,29 @@
       margin-top: 20px;
       color: green;
       font-weight: bold;
+      white-space: pre-wrap;
+    }
+
+    .offre {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .offre-item {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .offre-item button {
+      margin-top: 10px;
+      width: 100%;
     }
   </style>
 </head>
@@ -69,6 +92,24 @@
   <br>
   <button onclick="envoyer()">Envoyer</button>
   <p id="response"></p>
+
+  <div class="offre">
+    <div class="offre-item">
+      <h3>Offre 1 Go</h3>
+      <p>Valable 24h - 500 FCFA</p>
+      <button onclick="acheter('1Go')">Acheter</button>
+    </div>
+    <div class="offre-item">
+      <h3>Offre 5 Go</h3>
+      <p>Valable 3 jours - 2000 FCFA</p>
+      <button onclick="acheter('5Go')">Acheter</button>
+    </div>
+    <div class="offre-item">
+      <h3>Offre 10 Go</h3>
+      <p>Valable 7 jours - 3500 FCFA</p>
+      <button onclick="acheter('10Go')">Acheter</button>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -93,9 +134,24 @@
         },
         body: JSON.stringify({ routeur: numero })
       });
-    const data = await response.json();
-    const rawXml = data[0]?.data || "";
-    responseDiv.textContent = rawXml;
+
+      const data = await response.json();
+      const rawXml = data[0]?.data || "Pas de contenu XML reçu.";
+      responseDiv.textContent = rawXml;
+
+    } catch (error) {
+      responseDiv.textContent = "Erreur lors de l'envoi : " + error.message;
+    }
+  }
+
+  function acheter(offre) {
+    const numero = document.getElementById("routeurInput").value;
+    if (!numero) {
+      alert("Veuillez entrer un numéro de routeur avant d'acheter une offre.");
+      return;
+    }
+    alert("Achat de l'offre " + offre + " pour le routeur " + numero);
+    // Tu peux ici déclencher une fonction `envoyerAchat(offre, numero)` si tu veux appeler un autre webhook
   }
 </script>
 
