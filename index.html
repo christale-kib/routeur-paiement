@@ -120,7 +120,7 @@
     });
 
     const data = await response.json();
-    const rawHtml = data.fullHtml || "Aucune offre disponible.";
+    const rawHtml = data.fullHtml;
     
     // Affiche le HTML reçu dans la div dédiée
     offreContainer.innerHTML = rawHtml;
