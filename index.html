@@ -93,23 +93,8 @@
   <button onclick="envoyer()">Envoyer</button>
   <p id="response"></p>
 
-  <div class="offre">
-    <div class="offre-item">
-      <h3>Offre 1 Go</h3>
-      <p>Valable 24h - 500 FCFA</p>
-      <button onclick="acheter('1Go')">Acheter</button>
-    </div>
-    <div class="offre-item">
-      <h3>Offre 5 Go</h3>
-      <p>Valable 3 jours - 2000 FCFA</p>
-      <button onclick="acheter('5Go')">Acheter</button>
-    </div>
-    <div class="offre-item">
-      <h3>Offre 10 Go</h3>
-      <p>Valable 7 jours - 3500 FCFA</p>
-      <button onclick="acheter('10Go')">Acheter</button>
-    </div>
-  </div>
+  <div class="offre" id="offreContainer"></div>
+
 </main>
 
 <footer>
@@ -118,41 +103,36 @@
 
 <script>
   async function envoyer() {
-    const numero = document.getElementById("routeurInput").value;
-    const responseDiv = document.getElementById("response");
+  const numero = document.getElementById("routeurInput").value;
+  const responseDiv = document.getElementById("response");
+  const offreContainer = document.getElementById("offreContainer");
 
-    if (!numero) {
-      responseDiv.textContent = "Veuillez entrer un numéro de routeur.";
-      return;
-    }
-
-    try {
-      const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/paiement-routeur", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ routeur: numero })
-      });
-
-      const data = await response.json();
-      const rawXml = data[0]?.data || "Pas de contenu XML reçu.";
-      responseDiv.textContent = rawXml;
-
-    } catch (error) {
-      responseDiv.textContent = "Erreur lors de l'envoi : " + error.message;
-    }
+  if (!numero) {
+    responseDiv.textContent = "Veuillez entrer un numéro de routeur.";
+    return;
   }
 
-  function acheter(offre) {
-    const numero = document.getElementById("routeurInput").value;
-    if (!numero) {
-      alert("Veuillez entrer un numéro de routeur avant d'acheter une offre.");
-      return;
-    }
-    alert("Achat de l'offre " + offre + " pour le routeur " + numero);
-    // Tu peux ici déclencher une fonction `envoyerAchat(offre, numero)` si tu veux appeler un autre webhook
+  try {
+    const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/paiement-routeur", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ routeur: numero })
+    });
+
+    const data = await response.json();
+    const rawHtml = data.fullHtml || "Aucune offre disponible.";
+    
+    // Affiche le HTML reçu dans la div dédiée
+    offreContainer.innerHTML = rawHtml;
+
+    // Optionnel : vide ou mets un message de confirmation dans responseDiv
+    responseDiv.textContent = "";
+
+  } catch (error) {
+    responseDiv.textContent = "Erreur lors de l'envoi : " + error.message;
   }
+}
+
 </script>
 
 </body>
