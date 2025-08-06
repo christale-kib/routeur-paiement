@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement Routeur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #FF0000;
+      color: white;
+    }
+
+    header img {
+      height: 150px;
+      margin-right: 100px;
+    }
+
+    main {
+      padding: 30px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 50px;
+      background-color: #eee;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #response {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      white-space: pre-wrap;
+    }
+
+    .offre {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .offre-item {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .offre-item button {
+      margin-top: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/christale-kib/routeur-paiement/main/Airtel_Congo.jpg
+" alt="Logo">
+  <h1>Bienvenue sur notre service d'activation de routeur</h1>
+</header>
+
+<main>
+  <h2>Activation routeur</h2>
+
+  <form method="POST" action="https://n8n.srv878521.hstgr.cloud/webhook-test/APITest">
+    <input type="text" name="routeur" placeholder="Entrez le numéro du routeur" required>
+    <br>
+    <input type="text" name="numero_whatsapp" placeholder="Entrez le numéro WhatsApp / Alternatif" required>
+    <br>
+    <button type="submit">Envoyer</button>
+  </form>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 - Service de Paiement Routeur. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
