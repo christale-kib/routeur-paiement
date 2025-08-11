@@ -87,25 +87,35 @@
   </footer>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+  document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      const numero = document.getElementById("numero").value;
-      const password = document.getElementById("password").value;
+    const numero = document.getElementById("numero").value;
+    const password = document.getElementById("password").value;
 
-      fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/AuthentReport", {
+    try {
+      const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/AuthentReport", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ numero, password }),
-      }).catch(err => {
-        console.error("Erreur d'envoi :", err);
       });
 
-      // Optionnel : reset du formulaire ou message de confirmation immédiat
-      // this.reset();
-      // alert("Données envoyées !");
-    });
-  </script>
+      if (!response.ok) {
+        alert("Erreur lors de la connexion au serveur");
+        return;
+      }
+
+      const blob = await response.blob(); // récupère la réponse binaire (HTML)
+      const url = URL.createObjectURL(blob); // crée une URL locale pour blob
+      window.open(url, "_blank"); // ouvre dans un nouvel onglet
+
+    } catch (err) {
+      console.error("Erreur d'envoi :", err);
+      alert("Erreur lors de la communication avec le serveur");
+    }
+  });
+</script>
+
 
 </body>
 </html>
