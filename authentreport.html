@@ -87,34 +87,37 @@
   </footer>
 
   <script>
-  document.getElementById("loginForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    const numero = document.getElementById("numero").value;
-    const password = document.getElementById("password").value;
+  const numero = document.getElementById("numero").value;
+  const password = document.getElementById("password").value;
 
-    try {
-      const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/AuthentReport", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ numero, password }),
-      });
+  try {
+    const response = await fetch("https://n8n.srv878521.hstgr.cloud/webhook-test/AuthentReport", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ numero, password }),
+    });
 
-      if (!response.ok) {
-        alert("Erreur lors de la connexion au serveur");
-        return;
-      }
-
-      const blob = await response.blob(); // récupère la réponse binaire (HTML)
-      const url = URL.createObjectURL(blob); // crée une URL locale pour blob
-      window.open(url, "_blank"); // ouvre dans un nouvel onglet
-
-    } catch (err) {
-      console.error("Erreur d'envoi :", err);
-      alert("Erreur lors de la communication avec le serveur");
+    if (!response.ok) {
+      alert("Erreur lors de la connexion au serveur");
+      return;
     }
-  });
+
+    const blob = await response.blob(); // récupère la réponse binaire (HTML)
+    const url = URL.createObjectURL(blob); // crée une URL locale pour blob
+    console.log("Réponse reçue, création URL blob");  
+    console.log(url);  
+    window.open(url, "_blank"); // ouvre dans un nouvel onglet
+
+  } catch (err) {
+    console.error("Erreur d'envoi :", err);
+    alert("Erreur lors de la communication avec le serveur");
+  }
+});
 </script>
+
 
 
 </body>
