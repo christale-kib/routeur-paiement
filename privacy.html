@@ -1,97 +1,129 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Politique de confidentialité – Trace Services Technologiques</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 920px; margin: 40px auto; line-height: 1.65; padding: 0 20px; color:#222; }
-    h1, h2 { color:#222; }
-    .muted { color:#666; }
-    a { color:#0a66c2; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    ul { margin-top:.4rem; }
-    code { background:#f6f6f6; padding:2px 4px; border-radius:4px; }
-  </style>
+  <title>Politique de confidentialité, Trace Services Technologiques</title>
+  <style>:root{--fg:#1d1d1f;--muted:#666;--bg:#fff;--primary:#0a66c2;--soft:#f6f7f9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.65}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
+header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:10px;align-items:center;font-weight:600}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--primary)}
+nav a{margin-left:18px;font-weight:500}
+.hero{padding:72px 0;background:var(--soft)}
+.hero h1{font-size:clamp(28px,4vw,40px);margin:0 0 10px}
+.hero p{color:var(--muted);margin:6px 0 0}
+.button{display:inline-block;background:var(--primary);color:#fff;border-radius:10px;padding:10px 16px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:32px 0}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:18px}
+.card h3{margin:0 0 8px}
+.section{padding:44px 0}
+footer{margin-top:40px;border-top:1px solid #eee;background:#fafafa}
+.footer-inner{padding:24px 0;display:grid;grid-template-columns:1fr;gap:8px}
+.small{color:var(--muted);font-size:14px}
+ul.clean{margin:8px 0 0;padding:0;list-style:none}
+code{background:#f0f0f0;padding:2px 6px;border-radius:6px}
+.note{background:#fff4d6;border:1px solid #ffd36e;color:#7a5b00;padding:10px 12px;border-radius:10px}
+@media(min-width:800px){.footer-inner{grid-template-columns:2fr 1fr}}</style>
 </head>
 <body>
-  <h1>Politique de confidentialité</h1>
-  <p class="muted"><strong>Dernière mise à jour : 2 septembre 2025</strong></p>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> Routeur’ App</div>
+      <nav>
+  <a href="/">Accueil</a>
+  <a href="/privacy/">Confidentialité</a>
+  <a href="/terms/">Conditions</a>
+  <a href="/deletedata/">Suppression des données</a>
+</nav>
+    </div>
+  </header>
 
-  <p>
-    La présente Politique décrit la manière dont <strong>Trace Services Technologiques</strong>
-    (« nous », « notre »), éditeur de l’application <strong>Routeur’ App</strong> et des services associés
-    (site web, automatisations n8n, intégrations WhatsApp et paiements), collecte et traite vos données.
-  </p>
+  <main class="container section">
+    <h1>Politique de confidentialité</h1>
+    <p class="small"><strong>Dernière mise à jour : 2025-09-02</strong></p>
 
-  <h2>1. Responsable du traitement</h2>
-  <p>
-    Trace Services Technologiques<br/>
-    19, rue KIMBOUMBOU, Batignoles_laFrontiere, Brazzaville – République du Congo<br/>
-    Tél : +242 057009510<br/>
-    Site : <a href="https://christale-kib.github.io/routeur-paiement/" target="_blank" rel="noopener">https://christale-kib.github.io/routeur-paiement/</a><br/>
-    E-mail : <a href="mailto:traceservicestechnologique@gmail.com">traceservicestechnologique@gmail.com</a>
-  </p>
+    <p>
+      La présente Politique décrit la manière dont <strong>Trace Services Technologiques</strong>
+      (« nous », « notre »), éditeur de l’application <strong>Routeur’ App</strong> et des services associés
+      (site web, automatisations n8n, intégrations WhatsApp et paiements), collecte et traite vos données.
+    </p>
 
-  <h2>2. Données que nous collectons</h2>
-  <ul>
-    <li><strong>Via Facebook Login</strong> : identifiant Facebook, nom, prénom, e-mail (et uniquement d’autres permissions si vous les acceptez et si notre application est autorisée par Meta).</li>
-    <li><strong>Dans Routeur’ App</strong> : MSISDN (numéro), identifiants/numéros de routeur (ISDN/IDU), offres sélectionnées (<em>offerId</em>), demandes d’activation et métadonnées (date/heure, statut).</li>
-    <li><strong>Paiements</strong> : références de transaction (Airtel Money / MTN Money), montants, statuts. Nous ne stockons pas vos codes secrets/PIN.</li>
-    <li><strong>WhatsApp (si vous nous contactez par ce canal)</strong> : numéro WhatsApp, contenu des messages échangés.</li>
-    <li><strong>Journaux techniques</strong> : adresse IP, agent utilisateur, identifiants d’appareil, horodatages, événements d’erreur.</li>
-    <li><strong>Site web</strong> : cookies techniques nécessaires (aucun ciblage publicitaire).</li>
-  </ul>
+    <h2>1. Responsable du traitement</h2>
+    <p>
+      <strong>Trace Services Technologiques</strong><br/>
+      19, rue KIMBOUMBOU, Batignoles la Frontière, Brazzaville – République du Congo<br/>
+      Tél : +242 057009510<br/>
+      Site : <a href="https://app.tstdigitalproducts.com/">https://routeur.tstdigitalproducts.com/app/</a><br/>
+      E-mail : <a href="mailto:traceservicestechnologique@gmail.com">traceservicestechnologique@gmail.com</a>
+    </p>
 
-  <h2>3. Finalités</h2>
-  <ul>
-    <li>Fournir les services : consultation des offres, activation de routeurs, suivi des statuts.</li>
-    <li>Authentification et gestion de compte (Facebook Login le cas échéant).</li>
-    <li>Support client (WhatsApp/e-mail), notifications opérationnelles.</li>
-    <li>Prévention de la fraude, sécurité, traçabilité réglementaire/télécom.</li>
-    <li>Statistiques agrégées et amélioration du service.</li>
-  </ul>
+    <h2>2. Données que nous collectons</h2>
+    <ul>
+      <li><strong>Facebook Login</strong> : identifiant, nom, prénom, email (et autres permissions si acceptées et autorisées).</li>
+      <li><strong>Routeur’ App</strong> : MSISDN, identifiants/numéros de routeur, offre choisie (<em>offerId</em>), demandes d’activation, horodatages.</li>
+      <li><strong>Paiements</strong> : références de transaction (Airtel Money/MTN Money), montants, statuts (jamais vos PIN).</li>
+      <li><strong>WhatsApp</strong> : numéro et contenu des messages si vous nous contactez par ce canal.</li>
+      <li><strong>Journaux techniques</strong> : adresse IP, agent utilisateur, identifiants d’appareil, événements d’erreur.</li>
+      <li><strong>Site</strong> : cookies techniques (pas de ciblage publicitaire).</li>
+    </ul>
 
-  <h2>4. Bases juridiques</h2>
-  <p>Exécution du contrat, intérêt légitime (sécurité, amélioration), consentement (lorsqu’exigé, ex. login/notifications), et obligations légales.</p>
+    <h2>3. Finalités</h2>
+    <ul>
+      <li>Fourniture du service : offres, activation, suivi.</li>
+      <li>Authentification et gestion de compte.</li>
+      <li>Support client et notifications.</li>
+      <li>Prévention de la fraude et sécurité.</li>
+      <li>Statistiques agrégées et amélioration.</li>
+    </ul>
 
-  <h2>5. Partage</h2>
-  <ul>
-    <li><strong>Meta</strong> (Facebook/WhatsApp) pour les fonctionnalités utilisées.</li>
-    <li><strong>Partenaires télécom/paiements</strong> (ex. Airtel Money, MTN Money) pour exécuter les transactions.</li>
-    <li><strong>Hébergement & automatisation</strong> : serveurs, workflows n8n, prestataires d’envoi de notifications.</li>
-  </ul>
-  <p>Nous ne vendons pas vos données.</p>
+    <h2>4. Bases juridiques</h2>
+    <p>Exécution du contrat, intérêt légitime, consentement (si requis), obligations légales.</p>
 
-  <h2>6. Transferts internationaux</h2>
-  <p>Certains prestataires peuvent être situés à l’étranger ; nous veillons à des garanties appropriées.</p>
+    <h2>5. Partage</h2>
+    <ul>
+      <li>Meta (Facebook/WhatsApp) pour les fonctionnalités utilisées.</li>
+      <li>Partenaires télécom/paiements (Airtel/MTN) pour exécuter les transactions.</li>
+      <li>Hébergement & automatisation : serveurs, workflows n8n, envoi de notifications.</li>
+    </ul>
+    <p>Nous ne vendons pas vos données.</p>
 
-  <h2>7. Durées de conservation</h2>
-  <ul>
-    <li>Données de compte/identité : durée d’utilisation + jusqu’à <strong>24 mois</strong> après la dernière activité.</li>
-    <li>Messages WhatsApp : jusqu’à <strong>6 mois</strong> après la dernière interaction (sauf suppression demandée plus tôt).</li>
-    <li>Journaux techniques : jusqu’à <strong>12 mois</strong>.</li>
-    <li>Données de transaction : jusqu’à <strong>24 mois</strong> (ou plus si la loi l’exige).</li>
-  </ul>
+    <h2>6. Transferts internationaux</h2>
+    <p>Des transferts peuvent avoir lieu vers l’étranger ; nous appliquons des garanties appropriées.</p>
 
-  <h2>8. Sécurité</h2>
-  <p>HTTPS, contrôle d’accès par rôles, journaux/alertes, sauvegardes limitées, bonnes pratiques serveurs et n8n.</p>
+    <h2>7. Durées de conservation</h2>
+    <ul>
+      <li>Compte/identité : durée d’utilisation + jusqu’à <strong>24 mois</strong>.</li>
+      <li>Messages WhatsApp : jusqu’à <strong>6 mois</strong>.</li>
+      <li>Journaux techniques : jusqu’à <strong>12 mois</strong>.</li>
+      <li>Transactions : jusqu’à <strong>24 mois</strong> (ou plus selon la loi).</li>
+    </ul>
 
-  <h2>9. Vos droits</h2>
-  <p>Accès, rectification, effacement, limitation, opposition, portabilité (lorsque applicable).</p>
+    <h2>8. Sécurité</h2>
+    <p>HTTPS, contrôle d’accès par rôles, journaux/alertes, sauvegardes limitées.</p>
 
-  <h2>10. Exercer vos droits / supprimer vos données</h2>
-  <p>
-    Écrivez-nous à
-    <a href="mailto:traceservicestechnologique@gmail.com">traceservicestechnologique@gmail.com</a>
-    ou utilisez
-    <a href="https://christale-kib.github.io/routeur-paiement/delete-data" target="_blank" rel="noopener">https://christale-kib.github.io/routeur-paiement/deletedata</a>.
-    Indiquez votre MSISDN et/ou e-mail Facebook pour identification.
-  </p>
+    <h2>9. Vos droits</h2>
+    <p>Accès, rectification, effacement, limitation, opposition, portabilité (si applicable).</p>
 
-  <h2>11. Modifications</h2>
-  <p>Nous pouvons mettre à jour cette Politique ; la version la plus récente est publiée ici avec sa date.</p>
+    <h2>10. Exercer vos droits / supprimer vos données</h2>
+    <p>Écrivez à <a href="mailto:traceservicestechnologique@gmail.com">traceservicestechnologique@gmail.com</a> ou utilisez
+      <a href="/deletedata/">https://app.tstdigitalproducts.com/deletedata</a>.</p>
 
-  <p class="muted"><small>&copy; Trace Services Technologiques – Tous droits réservés.</small></p>
+    <h2>11. Modifications</h2>
+    <p>Nous pouvons mettre à jour cette Politique ; la version la plus récente est publiée ici.</p>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>Trace Services Technologiques</strong><br/>
+19, rue KIMBOUMBOU, Batignoles la Frontière, Brazzaville – République du Congo<br/>
+Tél&nbsp;: +242 057009510</div>
+      <div class="small">© 2025 Trace Services Technologiques · <a href="/privacy/">Confidentialité</a> · <a href="/terms/">Conditions</a></div>
+    </div>
+  </footer>
 </body>
 </html>
